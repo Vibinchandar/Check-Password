@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password verify</title>
+</head>
+<body>
+
+<div class="container">
+    <label for="password">Enter a password</label>
+    <input type="password" id="password" value="">
+    <button class="btn" id="btn" >Submit</button>    
+    <div class="messagecontainer">
+      <div class="Message1" id="Message1">Error</div>
+      <div class="Message2" id="Message2">Success</div>
+    </div>    
+</div>
+
+<style>
+  body{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        background-color: beige;        
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-items: center;
+      gap: 0.5rem;      
+    } 
+    .Message1{
+      visibility: hidden;
+      color: red;
+    }
+    .Message2{
+      visibility: hidden;
+      color: green;
+    }
+</style>
+
+<script>
+    let inputEl = document.getElementById("password");    
+    let btnEl = document.getElementById("btn");
+    let Message1El = document.getElementById('Message1');
+    let Message2El = document.getElementById('Message2');
+
+    btnEl.addEventListener("click", btnFunc);
+    function btnFunc(){
+        if(inputEl.value.length < 10){
+            Message1El.style.visibility = 'visible';
+            Message2El.style.visibility = 'hidden';
+            btnEl.style.visibility = 'hidden';
+            inputEl.style.border = "2px solid red";
+        }else{
+            Message1El.style.visibility = 'hidden';
+            Message2El.style.visibility = 'visible';
+            btnEl.style.visibility = 'hidden';
+            inputEl.style.border = "2px solid green";
+        }
+    }    
+</script>
+</body>
+</html>
